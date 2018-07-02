@@ -87,8 +87,9 @@ router.get("/:key", (req, res, next) => {
             }
           }
           if (resValue) {
+            console.log('resvalue', resValue);
             res.status(200).json({
-              value: doc[0].value
+              value: resValue
             });
           }
           else {
