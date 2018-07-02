@@ -95,7 +95,7 @@ router.get("/:key", (req, res, next) => {
             res.status(404).json({ message: "No valid entry found for giving timestamp" });
           }
         } else {
-          res.status(404).json({ message: "No valid entry found for provided ID" });
+          res.status(404).json({ message: "No valid entry found for provided key value" });
         }
       })
       .catch(err => {
@@ -108,12 +108,12 @@ router.get("/:key", (req, res, next) => {
       .exec()
       .then(doc => {
         console.log("From database", doc);
-        if (doc) {
+        if (doc.length > 0) {
           res.status(200).json({
             value: doc[0].value
           });
         } else {
-          res.status(404).json({ message: "No valid entry found for provided ID" });
+          res.status(404).json({ message: "No valid entry found for provided key value" });
         }
       })
       .catch(err => {
