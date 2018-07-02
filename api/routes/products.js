@@ -32,8 +32,8 @@ router.post("/", (req, res, next) => {
   product.save()
     .then(result => {
       var dt = result.timestamp;
-      var hourTime = dt.getHours();
-      var minTime = dt.getMinutes();
+      var hourTime = dt.getUTCHours();
+      var minTime = dt.getUTCMinutes();
       var timeStamp = hourTime > 12 ? hourTime - 12 + ':' + minTime + ' PM' : hourTime + ':' + minTime + ' AM';
       res.status(201).json({
         key: result.key,
