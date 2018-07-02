@@ -7,10 +7,11 @@ const mongoose = require("mongoose");
 const productRoutes = require("./api/routes/products");
 
 mongoose.connect(
-  "mongodb://node-shop:node-shop@cluster0-shard-00-00-lblia.mongodb.net:27017,cluster0-shard-00-01-lblia.mongodb.net:27017,cluster0-shard-00-02-lblia.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true",
-  /*{
-    useMongoClient: true
-  }*/
+  "mongodb://node-shop:node-shop@cluster0-shard-00-00-lblia.mongodb.net:27017/test", {
+    ssl: true,
+    authSource: 'admin',
+    retryWrites: true
+  }
 );
 
 app.use(morgan("dev"));
