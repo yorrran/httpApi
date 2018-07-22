@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 const productRoutes = require("./api/routes/products");
 
 mongoose.connect(
-  "mongodb://node-shop:node-shop@cluster0-shard-00-00-lblia.mongodb.net:27017/test", {
+  "mongodb+srv://node-shop:node-shop@cluster0-lblia.mongodb.net/test", {
     ssl: true,
     authSource: 'admin',
     retryWrites: true
